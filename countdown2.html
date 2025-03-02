@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+/* /index.html 200
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20%;
+        }
+        #timer {
+            font-size: 2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Finn's nächste Backpfeife in</h1>
+    <div id="timer"></div>
+    
+    <script>
+        function updateCountdown() {
+            const countdownDate = new Date("May 2, 2025 14:30:00").getTime();
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+            
+            if (distance < 0) {
+                document.getElementById("timer").innerHTML = "Happy Slap!";
+                return;
+            }
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("timer").innerHTML = 
+                `${days} Tage ${hours} Stunden ${minutes} Minuten ${seconds} Sekunden`;
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
